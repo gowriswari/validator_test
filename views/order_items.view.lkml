@@ -12,11 +12,11 @@ view: order_items {
     # hidden: yes
     sql: ${TABLE}.inventory_item_id ;;
   }
-  dimension: order_id {
-    type: number
+  #dimension: order_id {
+    #type: number
     # hidden: yes
-    sql: ${TABLE}.order_id ;;
-  }
+    #sql: ${TABLE}.order_id ;;
+  #}
   dimension: phone {
     type: string
     sql: ${TABLE}.phone ;;
