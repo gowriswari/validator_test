@@ -2,7 +2,7 @@ connection: "thelook"
 
 # include all the views
 include: "/views/**/*.view.lkml"
-
+include: "/views/test1.view.lkml"
 datagroup: gowri_1_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
@@ -23,7 +23,7 @@ explore: billion_orders {
     relationship: many_to_one
   }
 }
-
+explore: test1 {}
 explore: bud {}
 
 explore: budget {}
@@ -140,6 +140,11 @@ explore: order_items {
   join: orders {
     type: left_outer
     sql_on: ${order_items.order_id} = ${orders.id} ;;
+    relationship: many_to_one
+  }
+  join: test1 {
+    type: left_outer
+    sql_on: ${order_items.id}=${test1.id} ;;
     relationship: many_to_one
   }
 
